@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
@@ -21,6 +22,15 @@ function App() {
       tech: 'Java • Networking • Data Structures',
     },
   ]
+
+  const [visitors, setVisitors] = useState([])
+
+  useEffect(() => {
+    fetch('/api/visitors')
+      .then((response) => response.json())
+      .then((data) => setVisitors(data))
+      .catch((error) => console.error('API Error:', error))
+  }, [])
 
   return (
     <div className="app">
@@ -307,6 +317,21 @@ function App() {
 
           </div>
 
+        </section>
+
+        <section className="visitors-section">
+          <h2>Visitors</h2>
+
+          <p>Total visitors: {visitors.length}</p>
+
+          <div className="visitors-list">
+            {visitors.map((visitor) => (
+              <div className="visitor-card" key={visitor.id}>
+                <strong>{visitor.name}</strong>
+                <p>{visitor.email}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
       </main>

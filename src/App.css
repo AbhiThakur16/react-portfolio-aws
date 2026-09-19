@@ -972,3 +972,44 @@ footer p {
     gap: 10px;
   }
 }
+
+/* Visitors Section */
+.visitors-section {
+  margin-top: 80px;
+  padding: 50px 0;
+}
+
+.visitors-section h2 {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.visitors-section > p {
+  margin-bottom: 30px;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.visitors-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.visitor-card {
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.visitor-card strong {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.visitor-card p {
+  margin: 0;
+  opacity: 0.75;
+}
