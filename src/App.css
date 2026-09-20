@@ -74,9 +74,9 @@ a {
 .logo {
   margin: 0;
 
-  font-size: 28px;
+  font-size: 18px;
 
-  font-weight: 900;
+  font-weight: 400;
 
   background:
     linear-gradient(
@@ -145,7 +145,7 @@ a {
 
   color: #21c8ff;
 
-  font-size: 18px;
+  font-size: 22px;
 
   font-weight: 800;
 

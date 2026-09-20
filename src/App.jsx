@@ -2,6 +2,17 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
+  const [totalViews, setTotalViews] = useState(0)
+
+  useEffect(() => {
+    fetch('/api/page-view', {
+      method: 'POST',
+    })
+      .then((response) => response.json())
+      .then((data) => setTotalViews(data.totalViews))
+      .catch((error) => console.error('Error loading visitor count:', error))
+  }, [])
+
   const projects = [
     {
       title: 'AI Image Studio',
@@ -12,6 +23,7 @@ function App() {
     {
       title: 'AI Intelligence Pipeline',
       description:
+
         'AI pipeline for collecting, processing and presenting structured intelligence.',
       tech: 'Python • AI/ML • APIs',
     },
@@ -23,20 +35,11 @@ function App() {
     },
   ]
 
-  const [visitors, setVisitors] = useState([])
-
-  useEffect(() => {
-    fetch('/api/visitors')
-      .then((response) => response.json())
-      .then((data) => setVisitors(data))
-      .catch((error) => console.error('API Error:', error))
-  }, [])
-
   return (
     <div className="app">
 
       <nav className="navbar">
-        <h2 className="logo">Abhi.dev</h2>
+        <h2 className="logo">Abhi Thakur</h2>
 
         <div className="nav-links">
           <a href="#about">About</a>
@@ -319,19 +322,11 @@ function App() {
 
         </section>
 
-        <section className="visitors-section">
-          <h2>Visitors</h2>
-
-          <p>Total visitors: {visitors.length}</p>
-
-          <div className="visitors-list">
-            {visitors.map((visitor) => (
-              <div className="visitor-card" key={visitor.id}>
-                <strong>{visitor.name}</strong>
-                <p>{visitor.email}</p>
-              </div>
-            ))}
-          </div>
+        
+           <section className="visitors-section">
+  	      <h2>Visitors</h2>
+  	      <p>Total visitors: {totalViews}</p>
+    	      <p>Database Status: Connected ✅</p>
         </section>
 
       </main>
